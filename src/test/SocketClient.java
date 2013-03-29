@@ -15,12 +15,11 @@ public class SocketClient {
             client.connect(isa, 10000);
             BufferedOutputStream out = new BufferedOutputStream(client.getOutputStream());
 
-            String input;
+            String input = "";
             BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
-            input = buf.readLine();
             while(!input.equals("quit")) {
-                out.write(input.getBytes());
                 input = buf.readLine();
+                out.write(input.getBytes());
                 out.flush();
             }
             out.close();
